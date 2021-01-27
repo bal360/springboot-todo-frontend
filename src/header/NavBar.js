@@ -2,7 +2,9 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FcTodoList } from 'react-icons/fc';
 
-
+const style = {
+  
+}
 
 const NavBar = () => {
   return (
