@@ -9,28 +9,29 @@ const StyledNavbar =  styled(Navbar)`
   background-color: #f8f9fa;
   padding: 1rem;
 `
-
+  
 const StyledNav = styled(Nav)`
   margin-left: ${props => props.primary ? "auto" : null};
   font-size: 1.15rem;
 `
+const style = {color: '#3D3DB2'}
 
 const NavBar = () => {
   return (
-    <>
+    <React.Fragment>
       <StyledNavbar expand="sm">
         <Navbar.Brand><FcTodoList size={30} /></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <StyledNav>
-            <Nav.Link as={Link} to="/todos">Todos</Nav.Link>
+            <Nav.Link as={Link} to="/todos" style={style}>Todos</Nav.Link>
           </StyledNav>
           <StyledNav primary>
-            <Nav.Link as={Link} to="/">Logout</Nav.Link>
+            <Nav.Link as={Link} to="/" style={style}>Logout</Nav.Link>
           </StyledNav>
         </Navbar.Collapse>
       </StyledNavbar>
-    </>
+    </React.Fragment>
   )
 }
 
