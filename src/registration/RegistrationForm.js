@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap';
 const RegistrationForm = () => {
   return (
     <div>
-      {/* <StyledButton>Submit</StyledButton> */}
+      RegistrationForm
     </div>
   )
 }
