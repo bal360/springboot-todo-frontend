@@ -75,6 +75,41 @@ const RegistrationForm = props => {
                 />
                 {errors.username && <StyledError>{errors.username.message}</StyledError>}
           </Form.Group>
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              type="password"
+              name="password"
+              ref={register({
+                required: "Password required",
+                minLength: {
+                  value: 8,
+                  message: "Must be at least 8 characters long"
+                },
+                validate: (value) => {
+                  return [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/]
+                  .every((pattern) => pattern.test(value))
+                  ||
+                  "Must include at least one of each: lowercase letter, uppercase letter, number, special character"
+                } 
+              })}
+            />
+            {errors.password && <StyledError>{errors.password.message}</StyledError>}
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control 
+              type="password"
+              name="confirmPassword"
+              ref={register({
+                required: "You must confirm your password",
+                validate: (value) => {
+                  return value === watch('password') || <p>The passwords do not match</p>
+                }
+              })}
+            />
+            {errors.confirmPassword && <StyledError>{errors.confirmPassword.message}</StyledError>}
+          </Form.Group>
           <Button type="submit">Submit</Button>
         </StyledForm>
       </StyledRow>
