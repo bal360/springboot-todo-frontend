@@ -37,9 +37,7 @@ const RegistrationForm = props => {
               <Form.Control 
                 type="text"
                 name="firstName"
-                ref={register({
-                  required: "First name required"
-                })}
+                ref={register({required: "First name required"})}
               />
               {errors.firstName && <StyledError>{errors.firstName.message}</StyledError>}
             </Form.Group>
@@ -48,13 +46,20 @@ const RegistrationForm = props => {
               <Form.Control 
                 type="text"
                 name="lastName"
-                ref={register({
-                  required: "Last name required"
-                })}
+                ref={register({required: "Last name required"})}
               />
-              {errors.firstName && <StyledError>{errors.firstName.message}</StyledError>}
+              {errors.lastName && <StyledError>{errors.lastName.message}</StyledError>}
             </Form.Group>
           </Form.Row>
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control 
+              type="email"
+              name="email"
+              ref={register({required: "Email required"})}
+            />
+            {errors.email && <StyledError>{errors.email.message}</StyledError>}
+          </Form.Group>
           <Form.Group>
             <Form.Label>Username</Form.Label>
                 <Form.Control 
