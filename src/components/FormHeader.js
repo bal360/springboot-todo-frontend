@@ -8,12 +8,19 @@ const StyledRow = styled(Row)`
   margin: 1.5rem 0 !important;
   padding: 1rem 0 !important;
 `
+const Heading = styled.h2`
+  text-align: center;
+  color: #3D3DB2;
+`
 
-const LogoHeader = () => {
+const LogoHeader = ({ text }) => {
   return (
-    <StyledRow>
-      <FcTodoList size={60} />
-    </StyledRow>
+    <>
+      <StyledRow>
+        <FcTodoList size={60} />
+      </StyledRow>
+      <Heading>{text}</Heading>
+    </>
   )
 }
 
