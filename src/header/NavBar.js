@@ -6,7 +6,8 @@ import styled from 'styled-components';
 const StyledNavbar =  styled(Navbar)`
   box-shadow: 2px 2px 2px #3D3DB2;
   background-color: #f8f9fa;
-  padding: 1rem 0;
+  padding: 1rem;
+  font-size: 1.15em;
 `
 
 const StyledNav = styled(Nav)`
