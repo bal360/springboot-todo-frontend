@@ -34,6 +34,7 @@ const RegistrationForm = props => {
   })
 
   const onSubmit = data => {
+    console.log(props)
     const { firstName, lastName, email, username, password } = data
     registerUser({
       firstName, 
@@ -42,6 +43,7 @@ const RegistrationForm = props => {
       username, 
       password
     }) 
+    .then(() => props.history.push('/login'))
     .catch(() => setFormErrorMessage({ ...formErrorMessage, failed: true }))
   }
 
