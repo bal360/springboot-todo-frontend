@@ -1,17 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
-import style from 'styled-components';
+import styled from 'styled-components';
 
-// const StyledContainer = styled(Container)`
-//   justif
-// `
+const StyledRow = styled(Row)`
+  justify-content: center;
+
+  & a { color: #3D3DB2 }
+`
 
 const Welcome = () => {
   return (
     <Container>
-
-        Welcome
+      <StyledRow>
+        <h2>Welcome, {sessionStorage.getItem('authenticatedUser')}!</h2>
+      </StyledRow>
+      <StyledRow>
+        <p>
+          Head over to your todos <Link to="/todos">here.</Link>
+        </p>
+      </StyledRow>
     </Container>
   )
 }
