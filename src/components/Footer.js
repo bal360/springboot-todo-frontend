@@ -6,9 +6,8 @@ const StyledContainer = styled(Container)`
   margin-top: 2rem;
 
   & .row { justify-content: center; }
-  & small { color: #3D3DB2 }
+  & small { color: #3D3DB2; }
 `
-
 
 const Footer = () => {
   return (

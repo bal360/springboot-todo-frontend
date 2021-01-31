@@ -3,7 +3,7 @@ import { Alert } from 'react-bootstrap';
 
 const FormFailMessage = ({ failed, form, message }) => {
   return (
-    <div>
+    <>
       { failed ? 
         <Alert variant="warning">
           <Alert.Heading>{form}</Alert.Heading>
@@ -12,7 +12,7 @@ const FormFailMessage = ({ failed, form, message }) => {
         :
         null
       }
-    </div>
+    </>
   )
 }
 

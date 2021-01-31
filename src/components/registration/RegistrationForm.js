@@ -6,7 +6,7 @@ import LogoHeader from '../FormHeader';
 import FormButton from '../FormButton';
 import { registerUser } from '../../api/user/UserRegistration';
 import FormFailMessage from '../FormFailMessage';
-import Footer from '../Footer';
+import FormFooter from '../FormFooter';
 
 const StyledRow = styled(Row)`
   justify-content: center;
@@ -133,6 +133,12 @@ const RegistrationForm = props => {
           <FormButton text={"Register Account"} />
         </Form>
       </StyledRow>
+      <FormFooter 
+        href={"/login"}
+        alt={"login link"}
+        text={"Already have an account?"}
+        linkText={"Let's head over to login"}
+      />
     </>
   )
 }
