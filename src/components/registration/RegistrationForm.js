@@ -11,7 +11,12 @@ import FormFooter from '../form-components/FormFooter';
 const StyledRow = styled(Row)`
   justify-content: center;
   
-  & form { width: 325px; }
+  & form { 
+    width: 325px;
+    padding: 25px;
+    background-color: #f8f9fa; 
+    border-radius: 10px
+  }
   & .form-row p { margin-bottom: 0; }
   & .form-label { font-weight: 500; }
   & p {
