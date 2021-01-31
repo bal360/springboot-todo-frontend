@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import LogoHeader from '../FormHeader';
 import FormButton from '../FormButton';
 import { registerUser } from '../../api/user/UserRegistration';
+import FormFailMessage from '../FormFailMessage';
 
 const StyledRow = styled(Row)`
   justify-content: center;
 
   & form {
     width: 325px;
+  }
+
+  & .form-row p {
+    margin-bottom: 0;
+  }
+
+  & .form-label {
+    font-weight: 500;
   }
 
   & p {
@@ -21,6 +30,11 @@ const StyledRow = styled(Row)`
 
 const RegistrationForm = props => {
   const { register, handleSubmit, errors, watch } = useForm()
+  const [formErrorMessage, setFormErrorMessage] = useState({
+    failed: false, 
+    form: "Registration failed",
+    message: "Username already exists. Please try entering a different one."
+  })
 
   const onSubmit = data => {
     const { firstName, lastName, email, username, password } = data
@@ -31,11 +45,18 @@ const RegistrationForm = props => {
       username, 
       password
     }) 
+    .catch(() => setFormErrorMessage({ ...formErrorMessage, failed: true }))
   }
 
+  const { failed, form, message } = formErrorMessage
   return (
     <>
       <LogoHeader text={"Register New Account"} />
+      <FormFailMessage 
+        failed={failed}
+        form={form}
+        message={message}
+      />
       <StyledRow>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Row>
@@ -111,7 +132,7 @@ const RegistrationForm = props => {
               ref={register({
                 required: "You must confirm your password",
                 validate: (value) => {
-                  return value === watch('password') || <p>The passwords do not match</p>
+                  return value === watch('password') || <div>The passwords do not match</div>
                 }
               })}
             />

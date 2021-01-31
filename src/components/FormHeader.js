@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 const StyledRow = styled(Row)`
   justify-content: center !important;
-  margin: 1.5rem 0 !important;
+  margin: 1rem 0 !important;
   padding: 1rem 0 !important;
 `
 const Heading = styled.h2`
   text-align: center;
   color: #3D3DB2;
   margin: 1rem 0;
-  padding: 0 0 1.75rem 0;
+  padding: 0 0 1.25rem 0;
 `
 
 const LogoHeader = ({ text }) => {
