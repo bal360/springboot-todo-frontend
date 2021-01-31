@@ -17,10 +17,7 @@ const FormFooter = ({ text, href, alt, linkText }) => {
     <StyledRow>
       <span>{text}</span>
       &ensp;
-      <a
-        href={href}
-        alt={alt}
-      >
+      <a href={href} alt={alt} >
         {linkText}
       </a>
     </StyledRow>
