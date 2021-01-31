@@ -25,6 +25,10 @@ export const isLoggedIn = () => {
   return user !== null ? true : false
 }
 
+export const logOut = () => {
+  sessionStorage.clear()
+}
+
 export const setupAxiosInterceptors = () => {
   axios.interceptors.request.use((config) => {
     if (isLoggedIn()) {
