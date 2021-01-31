@@ -7,9 +7,22 @@ import FormButton from '../form-components/FormButton';
 import FormFooter from '../form-components/FormFooter';
 
 const LoginForm = props => {
+  const { register, handleSubmit, errors } = useForm()
+  const [ formErrorMessage, setFormErrorMessage ] = useState({
+    failed: false, 
+    form: "Login failed",
+    message: "Please try entering your credentials again."
+  })
+
+  const { failed, form, message } = formErrorMessage
   return (
     <>
-      LoginForm
+      <LogoHeader />
+      <FormFailMessage 
+        failed={failed}
+        form={form}
+        message={message}
+      />
     </>
   )
 }
