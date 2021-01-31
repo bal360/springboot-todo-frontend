@@ -11,6 +11,7 @@ const Welcome = () => {
   return (
     <Container>
 
+        Welcome
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const sessionStorageUsername = 'authenticatedUser'
-const LOC_URL = 'http://www.localhost:5000.com'
+const LOC_URL = 'http://www.localhost:5000'
 
 export const executeJwtAuthService = (username, password) => {
   return axios.post(`${LOC_URL}/authenticate`, {

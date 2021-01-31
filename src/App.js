@@ -5,6 +5,8 @@ import NavBar from './components/header/NavBar';
 import RegistrationForm from './components/registration/RegistrationForm';
 import LoginForm from './components/login/LoginForm';
 import Footer from './components/Footer';
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+import Welcome from './components/Welcome';
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
           <Switch>
             <Route exact path="/register" component={RegistrationForm} />
             <Route exact path={["/", "/login"]} component={LoginForm} />
+            <AuthenticatedRoute exact path="/welcome/:name" component={Welcome} />
           </Switch>
         </Container>
       </Router>
