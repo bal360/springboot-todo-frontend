@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Router>
-        {/* <NavBar /> */}
+        <NavBar />
         <Container>
           <Switch>
             <Route exact path="/register" component={RegistrationForm} />
