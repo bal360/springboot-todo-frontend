@@ -6,6 +6,7 @@ import LogoHeader from '../LogoHeader';
 import FormFailMessage from '../form-components/FormFailMessage';
 import FormButton from '../form-components/FormButton';
 import FormFooter from '../form-components/FormFooter';
+import { executeJwtAuthService, registerJwtLogin } from '../../auth/AuthenticationService';
 
 const StyledRow = styled(Row)`
   justify-content: center;
@@ -31,8 +32,15 @@ const LoginForm = props => {
     message: "Please try entering your credentials again."
   })
 
-  const onSubmit = data => {
-    console.log(data)
+  const onSubmit = ({ username, password }) => {
+    executeJwtAuthService(username, password)
+    .then(({ data }) => {
+      registerJwtLogin(username, data.token)
+      props.history.push(`/welcome/${username}`)
+    })
+    .catch(() => {
+      setFormErrorMessage({ ...formErrorMessage, failed: true })
+    })
   }
 
   const { failed, form, message } = formErrorMessage
