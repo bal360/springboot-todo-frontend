@@ -13,7 +13,6 @@ const StyledNavbar =  styled(Navbar)`
   & .primary { margin-left: auto; }
   & .navbar-nav .nav-link { color: #3D3DB2; }
 `
-// const style = {color: '#3D3DB2'}
 
 const NavBar = () => {
   return (
