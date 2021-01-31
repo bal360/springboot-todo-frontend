@@ -11,6 +11,8 @@ const StyledRow = styled(Row)`
 const Heading = styled.h2`
   text-align: center;
   color: #3D3DB2;
+  margin: 1rem 0;
+  padding: 0 0 1.75rem 0;
 `
 
 const LogoHeader = ({ text }) => {
