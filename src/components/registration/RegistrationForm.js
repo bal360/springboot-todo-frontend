@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
-import LogoHeader from '../FormHeader';
-import FormButton from '../FormButton';
+import LogoHeader from '../LogoHeader';
+import FormButton from '../form-components/FormButton';
 import { registerUser } from '../../api/user/UserRegistration';
-import FormFailMessage from '../FormFailMessage';
-import FormFooter from '../FormFooter';
+import FormFailMessage from '../form-components/FormFailMessage';
+import FormFooter from '../form-components/FormFooter';
 
 const StyledRow = styled(Row)`
   justify-content: center;
