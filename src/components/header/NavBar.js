@@ -9,17 +9,9 @@ const StyledNavbar =  styled(Navbar)`
   background-color: #f8f9fa;
   padding: 1rem;
 
-  & .navbar-nav {
-    font-size: 1.15rem;
-  }
-  
-  & .primary {
-    margin-left: auto;
-  }
-
-  & .navbar-nav .nav-link {
-    color: #3D3DB2;
-  }
+  & .navbar-nav { font-size: 1.15rem; }
+  & .primary { margin-left: auto; }
+  & .navbar-nav .nav-link { color: #3D3DB2; }
 `
 // const style = {color: '#3D3DB2'}
 
