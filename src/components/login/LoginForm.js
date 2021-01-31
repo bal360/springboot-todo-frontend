@@ -33,7 +33,6 @@ const LoginForm = props => {
   })
 
   const onSubmit = ({ username, password }) => {
-    console.log(username, password)
     executeJwtAuthService(username, password)
     .then(({ data }) => {
       registerJwtLogin(username, data.token)

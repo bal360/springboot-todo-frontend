@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import LogoHeader from '../LogoHeader';
 import FormButton from '../form-components/FormButton';
-import { registerUser } from '../../api/user/UserRegistration';
+import { registerUser } from '../../api/user/UserService';
 import FormFailMessage from '../form-components/FormFailMessage';
 import FormFooter from '../form-components/FormFooter';
 

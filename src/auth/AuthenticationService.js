@@ -21,12 +21,17 @@ export const registerJwtLogin = (username, token) => {
 }
 
 export const isLoggedIn = () => {
-  let user = sessionStorage.getItem(sessionStorageUsername)
+  const user = sessionStorage.getItem(sessionStorageUsername)
   return user !== null ? true : false
 }
 
 export const logOut = () => {
   sessionStorage.clear()
+}
+
+export const getLoggedInUser = () => {
+  const user = sessionStorage.getItem(sessionStorageUsername)
+  return user !== null ? user : ''
 }
 
 export const setupAxiosInterceptors = () => {
