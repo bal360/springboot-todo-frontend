@@ -6,22 +6,14 @@ import LogoHeader from '../FormHeader';
 import FormButton from '../FormButton';
 import { registerUser } from '../../api/user/UserRegistration';
 import FormFailMessage from '../FormFailMessage';
+import Footer from '../Footer';
 
 const StyledRow = styled(Row)`
   justify-content: center;
-
-  & form {
-    width: 325px;
-  }
-
-  & .form-row p {
-    margin-bottom: 0;
-  }
-
-  & .form-label {
-    font-weight: 500;
-  }
-
+  
+  & form { width: 325px; }
+  & .form-row p { margin-bottom: 0; }
+  & .form-label { font-weight: 500; }
   & p {
     color: red;
     font-size: 0.8rem;  
