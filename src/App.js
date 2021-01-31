@@ -7,6 +7,7 @@ import LoginForm from './components/login/LoginForm';
 import Footer from './components/Footer';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import Welcome from './components/Welcome';
+import TodoList from './components/todos/TodoList';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/register" component={RegistrationForm} />
             <Route exact path={["/", "/login"]} component={LoginForm} />
             <AuthenticatedRoute exact path="/welcome/:name" component={Welcome} />
+            <AuthenticatedRoute exact path="/todos" component={TodoList} />
           </Switch>
         </Container>
       </Router>

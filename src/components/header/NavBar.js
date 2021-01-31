@@ -9,6 +9,7 @@ const StyledNavbar =  styled(Navbar)`
   box-shadow: 2px 2px 2px #3D3DB2;
   background-color: #f8f9fa;
   padding: 1rem;
+  margin-bottom: 3rem;
 
   & .navbar-nav { font-size: 1.15rem; }
   & .primary { margin-left: auto; }
