@@ -14,6 +14,7 @@ const Heading = styled.h1`
 const StyledButton = styled(Button)`
   background-color: #3D3DB2 !important;
   border-color: #3D3DB2 !important;
+  margin-top: 1rem;
 `
 
 const TodoList = () => {
@@ -58,7 +59,7 @@ const TodoList = () => {
           {listOfTodos()}
         </tbody>
       </Table>
-      <Link to={"/todo"}>
+      <Link to={"/todos/new"}>
           <StyledButton>New Todo</StyledButton>
       </Link>
     </>
