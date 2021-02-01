@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 const Heading = styled.h1`
   text-align: center;
+  margin-bottom: 2.5rem;
 `
 const TodoList = () => {
   const [todos, setTodos] = useState([])
@@ -15,10 +16,8 @@ const TodoList = () => {
     getAllTodos(getLoggedInUser())
     .then(({ data }) => setTodos(data))
     .catch(error => console.log(error.message))
-
   }, [])
   
-  console.log("useEffect data - ", todos)
   return (
     <>
       <Heading>Your Todos</Heading>
