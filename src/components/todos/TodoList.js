@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
+import { GrAddCircle } from 'react-icons/gr';
 import { getLoggedInUser } from '../../auth/AuthenticationService';
 import { getAllTodos } from '../../api/todo/TodoService';
 import styled from 'styled-components';
