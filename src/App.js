@@ -8,6 +8,11 @@ import Footer from './components/Footer';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import Welcome from './components/Welcome';
 import TodoList from './components/todos/TodoList';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  
+`
 
 const App = () => {
   return (

@@ -4,6 +4,7 @@ import { Button, Table } from 'react-bootstrap';
 import { getLoggedInUser } from '../../auth/AuthenticationService';
 import { getAllTodos } from '../../api/todo/TodoService';
 import styled from 'styled-components';
+import Todo from './Todo';
 
 const Heading = styled.h1`
   text-align: center;
@@ -17,7 +18,21 @@ const TodoList = () => {
     .then(({ data }) => setTodos(data))
     .catch(error => console.log(error.message))
   }, [])
-  
+
+  const listTodos = () => {
+    return todos.map(({ id, description, targetDate, completed }) => {
+      return (
+        <Todo 
+          key={id}
+          id={id}
+          description={description}
+          targetDate={targetDate}
+          completed={completed}
+        />
+      )
+    })
+  }
+
   return (
     <>
       <Heading>Your Todos</Heading>
@@ -31,6 +46,9 @@ const TodoList = () => {
             <th>Delete</th>
           </tr>
         </thead>
+        <tbody>
+          {listTodos()}
+        </tbody>
       </Table>
     </>
   )
