@@ -9,7 +9,25 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
 
   return (
     <tr>
-
+      <td>{description}</td>
+      <td>{moment.utc(targetDate).format('YYYY-MM-DD')}</td>
+      <td>
+        <Form.Group>
+          <Form.Check 
+            type="checkbox"
+          />
+        </Form.Group>
+      </td>
+      <td>
+        <Link>
+          <Button>
+            <BiArrowFromBottom  size={20} />
+          </Button>
+        </Link>
+      </td>
+      <td>
+        DeleteModal Component
+      </td>
     </tr>
   )
 }
