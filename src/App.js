@@ -15,9 +15,11 @@ const Wrapper = styled.div`
   min-height: 100vh;
   position: relative;
   padding-bottom: 100px;
+  // background-color: #f8f9fa;
 `
 
-const App = () => {
+const App = props => {
+  console.log('App', props)
   return (
     <Wrapper>
       <Router>
@@ -29,6 +31,7 @@ const App = () => {
             <AuthenticatedRoute exact path="/welcome/:name" component={Welcome} />
             <AuthenticatedRoute exact path="/todos" component={TodoList} />
             <AuthenticatedRoute exact path="/todos/new" component={TodoForm} />
+            <AuthenticatedRoute exact path="/todos/:id" component={TodoForm} />
           </Switch>
         </Container>
       </Router>

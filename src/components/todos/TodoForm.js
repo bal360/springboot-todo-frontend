@@ -10,13 +10,10 @@ import FormButton from '../form-components/FormButton';
 const StyledRow = styled(Row)`
   justify-content: center;
   margin-top: 13rem;
-  
-  // & form {
-  //   width: 325px;
-  //   padding: 25px;
-  //   background-color: #f8f9fa; 
-  //   border-radius: 10px
-  // }
+
+  & form {
+    width: 325px;
+  }
   & .form-label { font-weight: 500; }
   & p {
     color: red; 
@@ -26,6 +23,24 @@ const StyledRow = styled(Row)`
 
 const TodoForm = props => {
   const { register, handleSubmit, errors } = useForm()
+  const [todo, setTodo] = useState({
+    id: null, 
+    description: '',
+    targetDate: ''
+  })
+
+  useEffect(() => {
+    if (props.match.url !== '/todos/new') {
+      getTodo(props.match.params.id, getLoggedInUser())
+      .then(({ data }) => setTodo({
+        id: data.id, 
+        description: data.description, 
+        targetDate: moment.utc(data.targetDate).format('YYYY-MM-DD'),
+        completed: data.completed
+      }))
+    }
+    console.log(todo)
+  }, [props.match.params.id, props.match.url])
 
   const onSubmit = data => {
     console.log(data)
@@ -39,8 +54,9 @@ const TodoForm = props => {
           <Form.Control 
             type="text"
             name="description"
+            value={todo.description}
             ref={register({ required: "Description required" })}
-          />
+            />
           {errors.description && <p>{errors.description.message}</p>}
         </Form.Group>
         <Form.Group>
@@ -48,6 +64,7 @@ const TodoForm = props => {
           <Form.Control 
             type="text"
             name="targetDate"
+            value={todo.targetDate}
             ref={register({ required: "Date required" })}
           />
           {errors.targetDate && <p>{errors.targetDate.message}</p>}
