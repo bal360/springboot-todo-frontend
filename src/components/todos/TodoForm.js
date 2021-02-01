@@ -39,11 +39,22 @@ const TodoForm = props => {
         completed: data.completed
       }))
     }
-    console.log(todo)
   }, [props.match.params.id, props.match.url])
 
+  const onInputChange = event => {
+    const { name, value } = event.target
+    setTodo({ ...todo, [name]: value })
+  }
+
   const onSubmit = data => {
-    console.log(data)
+    const username = getLoggedInUser()
+    if (todo.id === null) {
+      createTodo(username, { ...todo })
+      .then(() => props.history.push('/todos'))
+    } else {
+      updateTodo(props.match.params.id, username, todo)
+      .then(() => props.history.push('/todos'))
+    }
   }
 
   return (
@@ -55,6 +66,7 @@ const TodoForm = props => {
             type="text"
             name="description"
             value={todo.description}
+            onChange={onInputChange}
             ref={register({ required: "Description required" })}
             />
           {errors.description && <p>{errors.description.message}</p>}
@@ -62,9 +74,10 @@ const TodoForm = props => {
         <Form.Group>
           <Form.Label>Date to be Completed</Form.Label>
           <Form.Control 
-            type="text"
+            type="date"
             name="targetDate"
             value={todo.targetDate}
+            onChange={onInputChange}
             ref={register({ required: "Date required" })}
           />
           {errors.targetDate && <p>{errors.targetDate.message}</p>}
