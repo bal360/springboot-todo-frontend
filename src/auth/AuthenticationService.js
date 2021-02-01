@@ -17,7 +17,7 @@ const createJwtToken = token => {
 
 export const registerJwtLogin = (username, token) => {
   sessionStorage.setItem(sessionStorageUsername, username)
-  setupAxiosInterceptors(createJwtToken(token))
+  createJwtToken(token)
 }
 
 export const isLoggedIn = () => {
@@ -34,12 +34,13 @@ export const getLoggedInUser = () => {
   return user !== null ? user : ''
 }
 
-export const setupAxiosInterceptors = () => {
+// export const setupAxiosInterceptors = () => {
   axios.interceptors.request.use((config) => {
+    // console.log('interceptor - ', config)
     if (isLoggedIn()) {
-      config.headers.authorization = sessionStorage.getItem('USER_TOKEN')
+      config.headers.Authorization = sessionStorage.getItem('USER_TOKEN')
     }
     return config
   })
-}
+// }
 

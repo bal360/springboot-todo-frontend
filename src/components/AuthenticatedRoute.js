@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { isLoggedIn, setupAxiosInterceptors } from '../auth/AuthenticationService';
+import { isLoggedIn } from '../auth/AuthenticationService';
 
-class AuthenticatedRoute extends React.Component {
-  componentDidMount() {
-    setupAxiosInterceptors()
-  }
-  render() {
-    if (isLoggedIn()) {
-      return <Route {...this.props} />
-    } else {
-      return <Redirect to="/login" />
-    }
-  }
+const AuthenticatedRoute = props => {
+  return (
+    isLoggedIn() ? 
+      <Route {...props} />
+    :
+      <Redirect to="/login" />
+  )
 }
 
 export default AuthenticatedRoute;
