@@ -10,6 +10,12 @@ const Heading = styled.h1`
   text-align: center;
   margin-bottom: 2.5rem;
 `
+
+const StyledButton = styled(Button)`
+  background-color: #3D3DB2 !important;
+  border-color: #3D3DB2 !important;
+`
+
 const TodoList = () => {
   const [todos, setTodos] = useState([])
 
@@ -19,7 +25,7 @@ const TodoList = () => {
     .catch(error => console.log(error.message))
   }, [])
 
-  
+
 
   const listOfTodos = () => {
     return todos.map(({ id, description, targetDate, completed }) => {
@@ -43,7 +49,7 @@ const TodoList = () => {
           <tr>
             <th>Description</th>
             <th>Due Date</th>
-            <th>Completed?</th>
+            <th>Done</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -52,6 +58,9 @@ const TodoList = () => {
           {listOfTodos()}
         </tbody>
       </Table>
+      <Link to={"/todo"}>
+          <StyledButton>New Todo</StyledButton>
+      </Link>
     </>
   )
 }
