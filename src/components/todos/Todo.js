@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { BiArrowFromBottom } from 'react-icons/bi';
 import moment from 'moment';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  color: #3D3DB2;
+  background-color: #f8f9fa;
+  border-color: #3D3DB2;
+  :hover {
+    background-color: #3D3DB2;
+    border-color: #fff;
+  }
+`
 
 const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
   // const [checked, setCheckBox] = useState(completed)
@@ -19,10 +30,10 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
         </Form.Group>
       </td>
       <td>
-        <Link>
-          <Button>
-            <BiArrowFromBottom  size={20} />
-          </Button>
+        <Link to={`/todos/${id}`}>
+          <StyledButton>
+            <BiArrowFromBottom size={20} />
+          </StyledButton>
         </Link>
       </td>
       <td>
