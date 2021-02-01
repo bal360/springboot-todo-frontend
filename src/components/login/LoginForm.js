@@ -26,7 +26,7 @@ const StyledRow = styled(Row)`
 
 const LoginForm = props => {
   const { register, handleSubmit, errors } = useForm()
-  const [ formErrorMessage, setFormErrorMessage ] = useState({
+  const [formErrorMessage, setFormErrorMessage] = useState({
     failed: false, 
     form: "Login failed",
     message: "Please try entering your credentials again."

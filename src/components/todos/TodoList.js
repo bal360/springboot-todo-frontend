@@ -27,8 +27,6 @@ const TodoList = () => {
     .catch(error => console.log(error.message))
   }, [])
 
-
-
   const listOfTodos = () => {
     return todos.map(({ id, description, targetDate, completed }) => {
       return (

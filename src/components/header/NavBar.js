@@ -27,7 +27,6 @@ const NavBar = () => {
             <Nav>
               <Nav.Link as={Link} to="/todos">Todos</Nav.Link>
             </Nav>
-          
             <Nav className="primary">
               <Nav.Link as={Link} to="/" onClick={logOut}>Logout</Nav.Link>
             </Nav>
