@@ -11,12 +11,15 @@ import TodoList from './components/todos/TodoList';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  
+  min-height: 100vh;
+  // overflow: hidden;
+  position: relative;
+  padding-bottom: 100px;
 `
 
 const App = () => {
   return (
-    <>
+    <Wrapper>
       <Router>
         <NavBar />
         <Container>
@@ -29,7 +32,7 @@ const App = () => {
         </Container>
       </Router>
       <Footer />
-    </>
+    </Wrapper>
   )
 }
 
