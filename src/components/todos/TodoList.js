@@ -19,7 +19,9 @@ const TodoList = () => {
     .catch(error => console.log(error.message))
   }, [])
 
-  const listTodos = () => {
+  
+
+  const listOfTodos = () => {
     return todos.map(({ id, description, targetDate, completed }) => {
       return (
         <Todo 
@@ -47,7 +49,7 @@ const TodoList = () => {
           </tr>
         </thead>
         <tbody>
-          {listTodos()}
+          {listOfTodos()}
         </tbody>
       </Table>
     </>
