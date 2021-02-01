@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import Welcome from './components/Welcome';
 import TodoList from './components/todos/TodoList';
+import TodoForm from './components/todos/TodoForm';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -27,6 +28,7 @@ const App = () => {
             <Route exact path={["/", "/login"]} component={LoginForm} />
             <AuthenticatedRoute exact path="/welcome/:name" component={Welcome} />
             <AuthenticatedRoute exact path="/todos" component={TodoList} />
+            <AuthenticatedRoute exact path="/todos/new" component={TodoForm} />
           </Switch>
         </Container>
       </Router>
