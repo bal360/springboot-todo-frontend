@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
-const DeleteModal = ({ onDelete }) => {
+const DeleteModal = ({ onClickDelete }) => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -28,7 +28,7 @@ const DeleteModal = ({ onDelete }) => {
           <Button variant="secondary" onClick={handleClose}>
             Nah.
           </Button>
-          <Button>
+          <Button variant="primary" onClick={onClickDelete}>
             Delete it.
           </Button>
         </Modal.Footer>

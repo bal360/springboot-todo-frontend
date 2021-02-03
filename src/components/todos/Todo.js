@@ -31,6 +31,10 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
     })
   }
 
+  const onClickDelete = () => {
+    onDeleteButton(id)
+  }
+
   return (
     <tr>
       <td>{description}</td>
@@ -52,7 +56,7 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
         </Link>
       </td>
       <td>
-        <DeleteModal />
+        <DeleteModal onClickDelete={onClickDelete} />
       </td>
     </tr>
   )

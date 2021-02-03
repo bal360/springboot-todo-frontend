@@ -29,15 +29,15 @@ const TodoList = () => {
 
   const onDeleteButton = id => {
     const user = getLoggedInUser()
-    getAllTodos(user)
+    deleteTodo(id, user)
+    .then(() => getAllTodos(user))
     .then(({ data }) => setTodos(data))
-    .catch(error => console.log(error.message))
   }
 
   const listOfTodos = () => {
     return todos.map(({ id, description, targetDate, completed }) => {
       return (
-        <Todo 
+        <Todo
           key={id}
           id={id}
           description={description}
