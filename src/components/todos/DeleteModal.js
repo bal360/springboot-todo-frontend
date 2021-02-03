@@ -4,7 +4,7 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StyledButton = styled(Button)`
-  color: #3D3DB2 !important;
+  color: #3D3DB2;
   background-color: #f8f9fa;
   border-color: #3D3DB2 !important;
   :hover {
