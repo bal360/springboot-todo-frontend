@@ -5,6 +5,7 @@ import { BiArrowFromBottom } from 'react-icons/bi';
 import moment from 'moment';
 import styled from 'styled-components';
 import { updateTodo } from '../../api/todo/TodoService';
+import DeleteModal from './DeleteModal';
 
 const StyledButton = styled(Button)`
   color: #3D3DB2;
@@ -51,7 +52,7 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
         </Link>
       </td>
       <td>
-        DeleteModal Component
+        <DeleteModal />
       </td>
     </tr>
   )
