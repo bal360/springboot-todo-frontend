@@ -10,6 +10,7 @@ import AuthenticatedRoute from './components/AuthenticatedRoute';
 import Welcome from './components/Welcome';
 import TodoList from './components/todos/TodoList';
 import TodoForm from './components/todos/TodoForm';
+import NotFoundError from './components/NotFoundError';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -32,6 +33,7 @@ const App = props => {
             <AuthenticatedRoute exact path="/todos" component={TodoList} />
             <AuthenticatedRoute exact path="/todos/new" component={TodoForm} />
             <AuthenticatedRoute exact path="/todos/:id" component={TodoForm} />
+            <Route component={NotFoundError} />
           </Switch>
         </Container>
       </Router>
