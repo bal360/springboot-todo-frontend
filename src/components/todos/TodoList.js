@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 import { GrAddCircle } from 'react-icons/gr';
 import { getLoggedInUser } from '../../auth/AuthenticationService';
-import { getAllTodos } from '../../api/todo/TodoService';
+import { getAllTodos, deleteTodo } from '../../api/todo/TodoService';
 import styled from 'styled-components';
 import Todo from './Todo';
 
@@ -27,6 +27,13 @@ const TodoList = () => {
     .catch(error => console.log(error.message))
   }, [])
 
+  const onDeleteButton = id => {
+    const user = getLoggedInUser()
+    getAllTodos(user)
+    .then(({ data }) => setTodos(data))
+    .catch(error => console.log(error.message))
+  }
+
   const listOfTodos = () => {
     return todos.map(({ id, description, targetDate, completed }) => {
       return (
@@ -36,6 +43,7 @@ const TodoList = () => {
           description={description}
           targetDate={targetDate}
           completed={completed}
+          onDeleteButton={onDeleteButton}
         />
       )
     })
