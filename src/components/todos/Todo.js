@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { BiArrowFromBottom } from 'react-icons/bi';
 import moment from 'moment';
 import styled from 'styled-components';
+import { updateTodo } from '../../api/todo/TodoService';
 
 const StyledButton = styled(Button)`
   color: #3D3DB2;
@@ -16,7 +17,18 @@ const StyledButton = styled(Button)`
 `
 
 const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
-  // const [checked, setCheckBox] = useState(completed)
+  const [checked, setCheckBox] = useState(completed)
+
+  const checkIt = event => {
+    const { checked } = event.target
+    const username = sessionStorage.getItem('authenticatedUser')
+    setCheckBox(checked)
+    updateTodo(id, username, {
+      description, 
+      targetDate, 
+      completed: checked
+    })
+  }
 
   return (
     <tr>
@@ -26,6 +38,8 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
         <Form.Group>
           <Form.Check 
             type="checkbox"
+            onChange={e => checkIt(e)}
+            checked={checked}
           />
         </Form.Group>
       </td>
