@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  color: #3D3DB2 !important;
+  background-color: #f8f9fa;
+  border-color: #3D3DB2 !important;
+  :hover {
+    background-color: #3D3DB2 !important;
+    border-color: #fff !important;
+  }
+`
+const ModalButton = styled(Button)`
+  background-color: #3D3DB2 !important;
+  border-color: #3D3DB2 !important;
+`
 
 const DeleteModal = ({ onClickDelete }) => {
   const [show, setShow] = useState(false)
@@ -9,12 +24,11 @@ const DeleteModal = ({ onClickDelete }) => {
 
   return (
     <>
-      <Button
+      <StyledButton
         onClick={handleShow}
-        variant="light"
       >
         <FaRegTrashAlt size={20} />
-      </Button>
+      </StyledButton>
       <Modal
         show={show}
         onHide={handleClose}
@@ -28,9 +42,9 @@ const DeleteModal = ({ onClickDelete }) => {
           <Button variant="secondary" onClick={handleClose}>
             Nah.
           </Button>
-          <Button variant="primary" onClick={onClickDelete}>
+          <ModalButton onClick={onClickDelete}>
             Delete it.
-          </Button>
+          </ModalButton>
         </Modal.Footer>
       </Modal>
     </>
