@@ -17,6 +17,12 @@ const StyledButton = styled(Button)`
   }
 `
 
+const StyledCheckbox = styled.input.attrs({ type: 'checkbox' })`
+  :focus {
+    background: black;
+  }
+`
+
 const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
   const [checked, setCheckBox] = useState(completed)
 
@@ -41,8 +47,7 @@ const Todo = ({ id, description, targetDate, completed, onDeleteButton }) => {
       <td>{moment.utc(targetDate).format('YYYY-MM-DD')}</td>
       <td>
         <Form.Group>
-          <Form.Check 
-            type="checkbox"
+          <StyledCheckbox
             onChange={e => checkIt(e)}
             checked={checked}
           />

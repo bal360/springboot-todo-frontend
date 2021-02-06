@@ -65,7 +65,7 @@ const TodoForm = props => {
         <Form.Group>
           <Form.Label>Todo</Form.Label>
           <Form.Control 
-            type="text"
+            as="textarea"
             name="description"
             value={todo.description}
             onChange={onInputChange}
