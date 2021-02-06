@@ -16,7 +16,6 @@ const Wrapper = styled.div`
   min-height: 100vh;
   position: relative;
   padding-bottom: 100px;
-  // background-color: #f8f9fa;
 `
 
 const App = props => {

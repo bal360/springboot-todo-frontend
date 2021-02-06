@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { getTodo, createTodo, updateTodo } from '../../api/todo/TodoService';
 import { getLoggedInUser } from '../../auth/AuthenticationService';
 import FormButton from '../form-components/FormButton';
+import { GlobalStyle } from '../GlobalStyle';
 
 const StyledRow = styled(Row)`
   justify-content: center;
@@ -59,6 +60,7 @@ const TodoForm = props => {
 
   return (
     <StyledRow>
+      <GlobalStyle />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
           <Form.Label>Todo</Form.Label>

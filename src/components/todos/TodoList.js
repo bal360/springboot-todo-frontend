@@ -5,6 +5,7 @@ import { getLoggedInUser } from '../../auth/AuthenticationService';
 import { getAllTodos, deleteTodo } from '../../api/todo/TodoService';
 import styled from 'styled-components';
 import Todo from './Todo';
+import { GlobalStyle } from '../GlobalStyle';
 
 const Heading = styled.h1`
   text-align: center;
@@ -50,6 +51,7 @@ const TodoList = () => {
 
   return (
     <>
+    <GlobalStyle />
       <Heading>Your Todos</Heading>
       <Table>
         <thead>
